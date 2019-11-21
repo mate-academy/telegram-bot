@@ -14,9 +14,9 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.Keyboard
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 public class MySuperBot extends TelegramLongPollingBot {
-    private static final String WHAT_THE_TIME_REQUEST = "What time is now?";
-    public static final String WHAT_THE_DATE_REQUEST = "What date is today?";
-    public static final String WHAT_IS_THE_CAPITAL_OF_GB_REQUEST = "What the city is the capital of GB?";
+    private static final String TIME_REQUEST = "What time is now?";
+    public static final String DATE_REQUEST = "What date is today?";
+    public static final String CAPITAL_OF_GB_REQUEST = "What the city is the capital of GB?";
     public static final String ORDER_PIZZA_REQUEST = "Order pizza";
     public static final String DRINKS_REQUEST = "Drinks";
     public static final String PIZZA_3_REQUEST = "Pizza 3";
@@ -36,7 +36,7 @@ public class MySuperBot extends TelegramLongPollingBot {
 
     private SendMessage getResponseMessage(Message message) {
         switch (message.getText()) {
-            case WHAT_THE_TIME_REQUEST:
+            case TIME_REQUEST:
                 return getCurrentTimeResponse(message);
             case ORDER_PIZZA_REQUEST:
                 return getOrderPizzaResponse(message);
@@ -67,11 +67,11 @@ public class MySuperBot extends TelegramLongPollingBot {
     private ReplyKeyboardMarkup getMainMenu() {
         ReplyKeyboardMarkup markup = new ReplyKeyboardMarkup();
         KeyboardRow row1 = new KeyboardRow();
-        row1.add(WHAT_THE_TIME_REQUEST);
-        row1.add(WHAT_THE_DATE_REQUEST);
+        row1.add(TIME_REQUEST);
+        row1.add(DATE_REQUEST);
 
         KeyboardRow row2 = new KeyboardRow();
-        row2.add(WHAT_IS_THE_CAPITAL_OF_GB_REQUEST);
+        row2.add(CAPITAL_OF_GB_REQUEST);
         row2.add(ORDER_PIZZA_REQUEST);
 
         List<KeyboardRow> rows = new ArrayList<>();
